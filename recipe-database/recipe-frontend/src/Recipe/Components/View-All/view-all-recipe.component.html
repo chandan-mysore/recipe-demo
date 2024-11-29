@@ -1,0 +1,85 @@
+<p-table
+  #dt
+  [value]="recipes"
+  [(selection)]="selectedRecipe"
+  dataKey="id"
+  styleClass="p-datatable-customers"
+  [rowHover]="true"
+  [rows]="5"
+  [showCurrentPageReport]="true"
+  [rowsPerPageOptions]="[5, 10, 25]"
+  [paginator]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [filterDelay]="0"
+  [globalFilterFields]="['Name']"
+>
+  <ng-template pTemplate="caption">
+    <div class="table-header">
+      Recipes
+      <span class="p-input-icon-left">
+        <input
+          pInputText
+          type="text"
+          (input)="globalSearch($event)"
+          placeholder="recipes..."
+        />
+      </span>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>
+        <span class="p-column-title">Name</span>
+      </th>
+      <th>
+        <span class="p-column-title">Description</span>
+      </th>
+      <th>
+        <span class="p-column-title">Preparation Time</span>
+      </th>
+      <th>
+        <span class="p-column-title">Cooking Time</span>
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-recipe>
+    <tr class="p-selectable-row">
+      <td>
+        <span class="p-column-title" name="recipeName">Name</span>
+        {{ recipe.Name }}
+      </td>
+      <td>
+        <span class="p-column-title">Description</span>
+        <span class="image-text">{{ recipe.Description }}</span>
+      </td>
+      <td>
+        <span class="p-column-title">Preparation Time</span>
+        <span class="image-text">{{ recipe.Preparation_Time }}</span>
+      </td>
+      <td>
+        <span class="p-column-title">Cooking Time</span>
+        {{ recipe.Cooking_Time }}
+      </td>
+      <td style="text-align: center">
+        <p-button
+          icon="pi pi-eye"
+          iconPos="left"
+          size="small"
+          (click)="viewRecipe(recipe.Id)"
+        ></p-button>
+        <p-button
+          icon="pi pi-file-edit"
+          iconPos="left"
+          size="small"
+          (click)="editRecipe(recipe.Id)"
+        ></p-button>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="emptymessage">
+    <tr>
+      <td colspan="8">No Recipes found.</td>
+    </tr>
+  </ng-template>
+</p-table>

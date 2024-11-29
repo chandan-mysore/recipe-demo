@@ -1,0 +1,60 @@
+<div class="container">
+  <h1>Update Recipe</h1>
+  <div class="formgrid grid">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="field">
+        <label for="recipe_name">Name:</label>
+        <input
+          required
+          formControlName="recipe_name"
+          id="recipe_name"
+          type="text"
+          [(ngModel)]="recipe.Name"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        />
+      </div>
+
+      <div class="field">
+        <label for="recipe_description">Description:</label>
+        <textarea
+          pInputTextarea
+          formControlName="recipe_description"
+          rows="5"
+          cols="30"
+          pInputTextarea
+          [(ngModel)]="recipe.Description"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        ></textarea>
+      </div>
+
+      <div class="field">
+        <label for="pre_time">Preparation Time:</label>
+        <input
+          formControlName="pre_time"
+          id="pre_time"
+          type="number"
+          [(ngModel)]="recipe.Preparation_time"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        />
+      </div>
+
+      <div class="field">
+        <label for="cook_time">Cooking Time:</label>
+        <input
+          formControlName="cook_time"
+          id="cook_time"
+          type="number"
+          [(ngModel)]="recipe.Cooking_Time"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        />
+      </div>
+      <p-button label="Update" type="submit" />
+      <p-message
+        *ngIf="this.isMessageVisible"
+        severity="success"
+        text="Recipe updated successfully!"
+        styleClass="p-mr-2"
+      ></p-message>
+    </form>
+  </div>
+</div>

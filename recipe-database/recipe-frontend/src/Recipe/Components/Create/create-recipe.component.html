@@ -1,0 +1,61 @@
+<div class="container">
+  <h1>Create New Recipe</h1>
+  <div class="formgrid grid">
+    <form [formGroup]="DetailForm" (ngSubmit)="submit()">
+      <div class="field">
+        <label for="Name">Name:</label>
+        <input
+          formControlName="Name"
+          id="Name"
+          type="text"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+          ngModel
+          required
+        />
+
+      </div>
+      <div class="field">
+        <label for="Description">Description:</label>
+        <textarea
+          pInputTextarea
+          formControlName="Description"
+          id="Description"
+          type="text"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        ></textarea>
+      </div>
+
+      <div class="field">
+        <label for="Cooking_Time">Recipe Cooking Time</label>
+        <input
+          required="required"
+          formControlName="Cooking_Time"
+          id="Cooking_Time"
+          type="number"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        />
+      </div>
+
+      <div class="field">
+        <label for="Preparation_Time">Recipe Preparation Time</label>
+        <input
+          formControlName="Preparation_Time"
+          id="Preparation_Time"
+          type="number"
+          class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+        />
+      </div>
+      <p-button
+        [disabled]="!(DetailForm.touched && DetailForm.valid)"
+        label="Submit"
+        type="submit"
+      />
+      <p-message
+        *ngIf="this.isMessageVisible"
+        severity="success"
+        text="Recipe Saved successfully!"
+        styleClass="p-mr-2"
+      ></p-message>
+    </form>
+  </div>
+</div>
