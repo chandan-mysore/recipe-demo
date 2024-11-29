@@ -1,7 +1,9 @@
 prerequisites:-
 
 latest node.js
+
 docker for desktop
+
 vs-code
 
 --To run NestJs Application
