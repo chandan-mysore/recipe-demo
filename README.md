@@ -15,3 +15,9 @@ run npm install
 run docker compose up
 
 npm run start:dev
+
+--To run Angular Application
+
+run npm install
+
+run npm start
