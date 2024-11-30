@@ -35,7 +35,6 @@ export class EditRecipeComponent {
   id!: number;
   recipe!: Recipe;
   form!: FormGroup;
-  msgs1!: Message[];
 
   constructor(
     public recipeService: RecipeService,
@@ -45,26 +44,15 @@ export class EditRecipeComponent {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.msgs1 = [
-      {
-        severity: 'success',
-        summary: 'Success',
-        detail: 'Recipe updated successfully!',
-      },
-      { severity: 'info', summary: 'Info', detail: 'Message Content' },
-      { severity: 'warn', summary: 'Warning', detail: 'Message Content' },
-      { severity: 'error', summary: 'Error', detail: 'Message Content' },
-    ];
-
     this.recipeService.findRecipe(this.id).subscribe((data: Recipe) => {
       this.recipe = data;
     });
 
     this.form = new FormGroup({
-      recipe_name: new FormControl<string>('', [Validators.required]),
-      recipe_description: new FormControl<string>('', Validators.required),
-      pre_time: new FormControl<number>(0, [Validators.required]),
-      cook_time: new FormControl<number>(0, Validators.required),
+      Name: new FormControl<string>('', [Validators.required]),
+      Description: new FormControl<string>('', Validators.required),
+      Preparation_Time: new FormControl<number>(0, [Validators.required]),
+      Cooking_Time: new FormControl<number>(0, Validators.required),
     });
   }
 

@@ -17,7 +17,6 @@ export class ViewRecipeComponent {
   constructor(
     public recipeService: RecipeService,
     private route: ActivatedRoute,
-    private router: Router
   ) {}
 
   ngOnInit(): void {

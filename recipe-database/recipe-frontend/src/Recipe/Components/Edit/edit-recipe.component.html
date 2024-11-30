@@ -3,11 +3,11 @@
   <div class="formgrid grid">
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="field">
-        <label for="recipe_name">Name:</label>
+        <label for="Name">Name:</label>
         <input
           required
-          formControlName="recipe_name"
-          id="recipe_name"
+          formControlName="Name"
+          id="Name"
           type="text"
           [(ngModel)]="recipe.Name"
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
@@ -15,10 +15,10 @@
       </div>
 
       <div class="field">
-        <label for="recipe_description">Description:</label>
+        <label for="Description">Description:</label>
         <textarea
           pInputTextarea
-          formControlName="recipe_description"
+          formControlName="Description"
           rows="5"
           cols="30"
           pInputTextarea
@@ -28,25 +28,25 @@
       </div>
 
       <div class="field">
-        <label for="pre_time">Preparation Time:</label>
+        <label for="Preparation_Time">Preparation Time:</label>
         <input
-          formControlName="pre_time"
-          id="pre_time"
+          formControlName="Preparation_Time"
+          id="Preparation_Time"
           type="number"
-          [(ngModel)]="recipe.Preparation_time"
+          [(ngModel)]="recipe.Preparation_Time"
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
-        />
+        /><p>Min</p>
       </div>
 
       <div class="field">
-        <label for="cook_time">Cooking Time:</label>
+        <label for="Cooking_Time">Cooking Time:</label>
         <input
-          formControlName="cook_time"
-          id="cook_time"
+          formControlName="Cooking_Time"
+          id="Cooking_Time"
           type="number"
           [(ngModel)]="recipe.Cooking_Time"
           class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
-        />
+        /><p>Min</p>
       </div>
       <p-button label="Update" type="submit" />
       <p-message
